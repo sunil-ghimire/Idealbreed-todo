@@ -1,0 +1,23 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    <div class="d-flex justify-content-center mt-4">
+        <div class="container">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col">
+                        {{ form.title }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <input type="submit" class="form-control btn-primary" value="UPDATE TASK">
+                    </div>
+                </div>
+            </form>
+            <div class="d-flex justify-content-center mt-4">
+                <a href="{% url 'home' %}">Cancel</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

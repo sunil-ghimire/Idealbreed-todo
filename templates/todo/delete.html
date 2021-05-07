@@ -1,0 +1,21 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    <div class="d-flex justify-content-center mt-4">
+        <p>Are you sure you want to delete <strong>"{{ item }}"</strong> ?</p>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group row">
+                <div class="col">
+                    <input type="submit" name="Confirm" class="form-control btn-danger" value="Delete">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{% url 'home' %}">Cancel</a>
+    </div>
+{% endblock content %}

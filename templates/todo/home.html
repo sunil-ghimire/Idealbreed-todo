@@ -1,0 +1,38 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+    <div class="d-flex justify-content-center mt-4">
+        <div class="container">
+            <form method="POST" action="/">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col">
+                        {{ form.title }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <input type="submit" class="form-control btn-primary" value="ADD TASK">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <hr>
+
+    <div class="container">
+        <table class="table table-striped table-dark">
+            <tbody>
+            {% for todo in todos %}
+                <tr>
+                    <td class="col-lg-8">{{ todo.title }}</td>
+                    <td><a href="{% url 'update' todo.id %}" class="text-primary col-lg-2">Edit</a></td>
+                    <td><a href="{% url 'delete' todo.id %}" class="text-danger col-lg-2">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}
